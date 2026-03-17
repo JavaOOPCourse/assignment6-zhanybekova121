@@ -12,12 +12,15 @@ public class Course {
     // TODO: Task 4 — Обязательно переопредели (иначе HashMap не будет работать!)
     @Override
     public boolean equals(Object o) {
-        return false; // заглушка
+        if (this == o) return true; // сравниваем ссылки
+        if (o == null || getClass() != o.getClass()) return false; // проверяем тип
+        Course course = (Course) o; // приводим к Course
+        return name.equals(course.name); // сравниваем имена
     }
 
     @Override
     public int hashCode() {
-        return 0; // заглушка
+        return name.hashCode();
     }
 
     @Override
